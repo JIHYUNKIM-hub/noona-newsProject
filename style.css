@@ -1,3 +1,4 @@
+/* 헤드라인 스타일 */
 .head-line {
   margin-top: 1em;
   display: flex;
@@ -7,6 +8,8 @@
 .head-line svg {
   width: 430px;
 }
+
+/* 메뉴 스타일 */
 .menus {
   margin-top: 1em;
   display: flex;
@@ -15,6 +18,7 @@
   border-top: 1px solid #ebebeb;
   border-bottom: 4px double #000;
 }
+
 .menus button {
   border: none;
   background: none;
@@ -25,11 +29,108 @@
   background-color: beige;
 }
 
+/* 뉴스 이미지 크기 제한 */
 .news-img-size {
   max-width: 100%;
   max-height: 250px;
 }
 
+/* 뉴스 항목 구분선 */
 .news {
   border-bottom: 2px solid black;
+}
+
+/* 검색창 스타일 */
+#search-query {
+  background-color: white;
+  border: none;
+}
+
+#search-button {
+  border: none;
+  background-color: lightgray;
+}
+
+.search-process {
+  display: none; /* 기본적으로 숨김 */
+}
+
+/* 검색바 위치 */
+.search-bars {
+  display: none; /* 기본적으로 숨김 */
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
+/* 사이드 메뉴 스타일 */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* 기본적으로 사이드 메뉴는 화면 왼쪽으로 숨겨짐 */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  padding: 8px 16px;
+}
+
+.side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.side-menu ul li:hover {
+  background-color: #575757;
+}
+
+/* 모바일 화면 스타일 */
+@media (max-width: 768px) {
+  /* 모바일에서만 검색바 표시 */
+  .search-bars {
+    display: block;
+  }
+
+  /* 사이드 메뉴 기본적으로 숨김 */
+  .side-menu {
+    left: -250px;
+  }
+
+  /* 모바일에서는 기본적으로 검색창 숨김 */
+  .search-process {
+    display: none;
+  }
+
+  .menus {
+    display: none;
+  }
+
+  /* 버튼 크기 조정 */
+  button {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  /* 검색 입력창 크기 */
+  #search-query {
+    text-align: left;
+    display: block;
+  }
+
+  /* 검색 바 표시 */
+  #search-bar {
+    display: block;
+  }
 }
