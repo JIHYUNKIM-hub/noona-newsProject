@@ -108,6 +108,13 @@
     left: -250px;
   }
 
+  #x-mark {
+    background-color:  #575757;
+  }
+  #x-mark i {
+    color: white;
+  }
+
   /* 모바일에서는 기본적으로 검색창 숨김 */
   .search-process {
     display: none;

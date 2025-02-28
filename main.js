@@ -12,6 +12,8 @@ searchQuery.addEventListener("click", () => {
 // search-bars 버튼을 눌렀을 때 사이드 메뉴 열기/닫기
 const searchBarToggle = document.getElementById("search-bar-toggle");
 const sideMenu = document.getElementById("side-menu");
+const sideCategories = document.querySelectorAll(".side-categories li");
+const xBtn = document.getElementById('x-mark');
 
 searchBarToggle.addEventListener("click", () => {
   // 사이드 메뉴 열고 닫기
@@ -21,6 +23,11 @@ searchBarToggle.addEventListener("click", () => {
     sideMenu.style.left = "0px"; // 사이드 메뉴 보이게 하기
   }
 });
+
+// X버튼 눌렀을 때 사이드 메뉴 닫기
+xBtn.addEventListener('click', ()=> {
+sideMenu.style.left = '-250px';
+})
 
 const getLatestNews = async function () {
   const url = new URL(
@@ -42,13 +49,12 @@ const render = () => {
     .map(
       (news) => `<div class="row news">
     <div class="col-lg-4">
-            <img
-              class="news-img-size"
-              src="${
-                news.urlToImage ||
-                "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-              }"
-            />
+<img 
+  class="news-img-size" 
+  src="${news.urlToImage && news.urlToImage !== null ? news.urlToImage : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'}" 
+  onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';"
+/>
+
           </div>
           <div class="col-lg-8">
             <h2>${news.title}</h2>
@@ -85,6 +91,12 @@ const getNewsByCategory = async (event) => {
   newsList = data.articles;
   render();
 };
+
+// 모바일 사이드 메뉴 카테고리 클릭 
+sideCategories.forEach((category)=> {
+category.addEventListener('click', (event)=> getNewsByCategory(event));
+render();
+})
 
 menus.forEach((menu) =>
   menu.addEventListener("click", (event) => getNewsByCategory(event))
