@@ -96,9 +96,17 @@
   background-color: #575757;
 }
 
+.pagination li hover {
+  background-color: #575757;
+}
+
 /* 모바일 화면 스타일 */
 @media (max-width: 768px) {
   /* 모바일에서만 검색바 표시 */
+  .pagination li hover {
+    background-color: #575757;
+  }
+
   .search-bars {
     display: block;
   }
@@ -109,7 +117,7 @@
   }
 
   #x-mark {
-    background-color:  #575757;
+    background-color: #575757;
   }
   #x-mark i {
     color: white;
